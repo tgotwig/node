@@ -9,3 +9,13 @@ tasks:
   build: docker build -t tg-node .
 
   run: docker run -it --rm tg-node fish
+
+  tag-and-push:
+    - |
+      docker tag tg-node tgotwig/node:latest
+      docker tag tg-node tgotwig/node:0.0.1
+      docker tag tg-node tgotwig/node:0.0.1-3.21
+
+      docker push tgotwig/node:latest
+      docker push tgotwig/node:0.0.1
+      docker push tgotwig/node:0.0.1-3.21
